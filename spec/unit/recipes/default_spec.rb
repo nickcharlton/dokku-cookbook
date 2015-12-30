@@ -15,6 +15,7 @@ describe "dokku-redux::default" do
 
     it "installs the required dependencies" do
       expect(chef_run).to install_package "apt-transport-https"
+      expect(chef_run).to start_docker_service "default"
     end
   end
 end

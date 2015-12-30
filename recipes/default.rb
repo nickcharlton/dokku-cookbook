@@ -6,3 +6,7 @@
 
 # install the dependencies
 package "apt-transport-https"
+
+docker_service "default" do
+  action [:create, :start]
+end
