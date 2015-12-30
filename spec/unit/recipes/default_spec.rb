@@ -17,5 +17,9 @@ describe "dokku-redux::default" do
       expect(chef_run).to install_package "apt-transport-https"
       expect(chef_run).to start_docker_service "default"
     end
+
+    it "configures the dokku repository" do
+      expect(chef_run).to create_packagecloud_repo "dokku/dokku"
+    end
   end
 end

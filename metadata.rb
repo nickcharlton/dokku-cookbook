@@ -8,3 +8,4 @@ version "0.1.0"
 
 depends "apt", "~> 2.9"
 depends "docker", "~> 2.0"
+depends "packagecloud", "~> 0.1"

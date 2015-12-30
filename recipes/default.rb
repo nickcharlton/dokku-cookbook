@@ -10,3 +10,7 @@ package "apt-transport-https"
 docker_service "default" do
   action [:create, :start]
 end
+
+packagecloud_repo "dokku/dokku" do
+  type "deb"
+end
