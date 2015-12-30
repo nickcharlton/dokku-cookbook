@@ -1,9 +1,15 @@
 require "spec_helper"
 
 describe "dokku-redux::default" do
-  # Serverspec examples can be found at
-  # http://serverspec.org/resource_types.html
-  it "does something" do
-    skip "Replace this with meaningful tests"
+  it "installs the required dependencies" do
+    expect(package("apt-transport-https")).to be_installed
+    expect(service("docker")).to be_running
+  end
+
+  it "configures the dokku repository" do
+    source_file = file("/etc/apt/sources.list.d/dokku_dokku.list")
+
+    expect(source_file).to exist
+    expect(source_file).to contain("https://packagecloud.io/dokku/dokku")
   end
 end
