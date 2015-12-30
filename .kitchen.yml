@@ -1,0 +1,22 @@
+---
+driver:
+  name: vagrant
+
+provisioner:
+  name: chef_zero
+
+# Uncomment the following verifier to leverage Inspec instead of Busser (the
+# default verifier)
+# verifier:
+#   name: inspec
+
+platforms:
+  - name: ubuntu-14.04
+    driver:
+      box: boxesio/trusty64-chef
+
+suites:
+  - name: default
+    run_list:
+      - recipe[dokku-redux::default]
+    attributes:
