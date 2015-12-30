@@ -5,3 +5,5 @@ license "mit"
 description "Manages a dokku install."
 long_description "Manages a dokku install and provides LWRPs for managing apps."
 version "0.1.0"
+
+depends "apt", "~> 2.9"
