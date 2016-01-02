@@ -13,3 +13,5 @@ end
 packagecloud_repo "dokku/dokku" do
   type "deb"
 end
+
+package "dokku"

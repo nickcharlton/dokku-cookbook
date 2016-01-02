@@ -21,5 +21,9 @@ describe "dokku-redux::default" do
     it "configures the dokku repository" do
       expect(chef_run).to create_packagecloud_repo "dokku/dokku"
     end
+
+    it "installs dokku" do
+      expect(chef_run).to install_package "dokku"
+    end
   end
 end

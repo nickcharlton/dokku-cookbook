@@ -12,4 +12,8 @@ describe "dokku-redux::default" do
     expect(source_file).to exist
     expect(source_file).to contain("https://packagecloud.io/dokku/dokku")
   end
+
+  it "installs dokku" do
+    expect(package("dokku")).to be_installed
+  end
 end
