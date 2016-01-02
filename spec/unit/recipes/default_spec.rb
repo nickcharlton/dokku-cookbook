@@ -13,7 +13,12 @@ describe "dokku-redux::default" do
       runner.converge(described_recipe)
     end
 
+    before do
+      stub_command("which nginx").and_return("/usr/bin/nginx")
+    end
+
     it "installs the required dependencies" do
+      expect(chef_run).to include_recipe "nginx"
       expect(chef_run).to install_package "apt-transport-https"
       expect(chef_run).to start_docker_service "default"
     end
