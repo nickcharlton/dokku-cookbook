@@ -1,4 +1,4 @@
-name "dokku-redux"
+name "dokku"
 maintainer "Nick Charlton"
 maintainer_email "nick@nickcharlton.net"
 license "mit"

@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe "dokku-redux::default" do
+describe "dokku::default" do
   it "installs the required dependencies" do
     expect(service("nginx")).to be_running
     expect(package("apt-transport-https")).to be_installed

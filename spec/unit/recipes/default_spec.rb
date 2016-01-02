@@ -1,12 +1,12 @@
 #
-# Cookbook Name:: dokku-redux
+# Cookbook Name:: dokku
 # Spec:: default
 #
 # Copyright (c) 2015 Nick Charlton, MIT licensed.
 
 require "spec_helper"
 
-describe "dokku-redux::default" do
+describe "dokku::default" do
   context "when all attributes are default, on an unspecified platform" do
     let(:chef_run) do
       runner = ChefSpec::ServerRunner.new

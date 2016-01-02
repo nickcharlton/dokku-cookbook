@@ -18,5 +18,5 @@ platforms:
 suites:
   - name: default
     run_list:
-      - recipe[dokku-redux::default]
+      - recipe[dokku::default]
     attributes:
