@@ -30,5 +30,12 @@ describe "dokku::default" do
     it "installs dokku" do
       expect(chef_run).to install_package "dokku"
     end
+
+    it "installs dokku plugin core dependencies" do
+      resource = chef_run.package("dokku")
+
+      expect(resource).to notify(
+        "execute[install-dokku-plugin-core-dependencies]").to(:run).immediately
+    end
   end
 end

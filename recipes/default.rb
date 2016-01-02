@@ -16,4 +16,11 @@ packagecloud_repo "dokku/dokku" do
   type "deb"
 end
 
-package "dokku"
+execute "install-dokku-plugin-core-dependencies" do
+  command "dokku plugin:install-dependencies --core"
+  action :nothing
+end
+
+package "dokku" do
+  notifies :run, "execute[install-dokku-plugin-core-dependencies]", :immediately
+end
