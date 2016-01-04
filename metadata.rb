@@ -10,3 +10,6 @@ depends "apt", "~> 2.9"
 depends "docker", "~> 2.0"
 depends "packagecloud", "~> 0.1"
 depends "nginx", "~> 2.7"
+
+recipe "default", "Triggers install cookbooks and provides the LWRP."
+recipe "install", "Installs and configures dokku dependencies"

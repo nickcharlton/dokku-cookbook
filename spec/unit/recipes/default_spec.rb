@@ -17,29 +17,8 @@ describe "dokku::default" do
       stub_command("which nginx").and_return("/usr/bin/nginx")
     end
 
-    it "installs the required dependencies" do
-      expect(chef_run).to include_recipe "nginx"
-      expect(chef_run).to install_package "apt-transport-https"
-      expect(chef_run).to start_docker_service "default"
-    end
-
-    it "configures the dokku repository" do
-      expect(chef_run).to create_packagecloud_repo "dokku/dokku"
-    end
-
-    it "installs dokku" do
-      expect(chef_run).to install_package "dokku"
-    end
-
-    it "installs dokku plugin core dependencies" do
-      resource = chef_run.package("dokku")
-
-      expect(resource).to notify(
-        "execute[install-dokku-plugin-core-dependencies]").to(:run).immediately
-    end
-
-    it "creates the domain file" do
-      expect(chef_run).to create_file("/home/dokku/VHOST")
+    it "includes the install recipe" do
+      expect(chef_run).to include_recipe "dokku::install"
     end
   end
 end
