@@ -31,3 +31,7 @@ file "/etc/nginx/conf.d/server_names_hash_bucket_size.conf" do
 
   notifies :restart, "service[nginx]", :delayed
 end
+
+file "/home/dokku/VHOST" do
+  content node["dokku"]["domain"] || node["fqdn"]
+end

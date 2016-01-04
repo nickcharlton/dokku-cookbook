@@ -37,5 +37,9 @@ describe "dokku::default" do
       expect(resource).to notify(
         "execute[install-dokku-plugin-core-dependencies]").to(:run).immediately
     end
+
+    it "creates the domain file" do
+      expect(chef_run).to create_file("/home/dokku/VHOST")
+    end
   end
 end

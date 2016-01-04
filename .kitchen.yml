@@ -20,3 +20,5 @@ suites:
     run_list:
       - recipe[dokku::default]
     attributes:
+      dokku:
+        domain: dokku.me

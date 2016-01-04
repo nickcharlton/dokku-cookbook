@@ -17,4 +17,11 @@ describe "dokku::default" do
   it "installs dokku" do
     expect(package("dokku")).to be_installed
   end
+
+  it "sets the domain for dokku" do
+    source_file = file("/home/dokku/VHOST")
+
+    expect(source_file).to exist
+    expect(source_file).to contain("dokku.me")
+  end
 end
