@@ -4,6 +4,28 @@ This is a rebuild of the existing [chef-dokku][] cookbook, switching to a
 direct package install and providing Lightweight Resource Providers (LWRPs) for
 managing apps and it's components.
 
+## Usage
+
+### Recipes
+
+* `dokku::default`: Includes install and provides the LWRPs.
+* `dokku::install`: Installs and configured dokku from the Debian package.
+* `dokku::ssh_keys`: Adds SSH keys from attributes.
+
+### LWRPs
+
+#### `ssh_keys`
+
+Provides `add` and `remove` actions for setting the Dokku SSH public keys.
+Defaults to `add`. e.g.:
+
+```ruby
+dokku_ssh_keys "user" do
+  key "ssh_public_key"
+  action :add
+end
+```
+
 ## Testing
 
 [ChefSpec][] is used for unit tests. [Test Kitchen][] is used for integration
