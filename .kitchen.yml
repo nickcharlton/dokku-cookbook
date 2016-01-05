@@ -19,6 +19,10 @@ suites:
   - name: default
     run_list:
       - recipe[dokku::default]
+      - recipe[dokku::ssh_keys]
     attributes:
       dokku:
         domain: dokku.me
+        ssh_keys:
+          - user: test
+            key: public_key
