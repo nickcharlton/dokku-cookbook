@@ -28,6 +28,17 @@ dokku_ssh_keys "user" do
 end
 ```
 
+#### `plugins`
+
+Provides `install` and `uninstall` actions for handling [plugins][]. Defaults
+to `install`. e.g.:
+
+```ruby
+dokku_plugins "redis" do
+  url "https://github.com/dokku/dokku-redis.git"
+end
+```
+
 ## Testing
 
 [ChefSpec][] is used for unit tests. [Test Kitchen][] is used for integration
@@ -45,6 +56,7 @@ chef exec kitchen test
 Copyright (c) Nick Charlton 2015. MIT licensed.
 
 [chef-dokku]: https://github.com/fgrehm/chef-dokku
+[plugins]: http://dokku.viewdocs.io/dokku/plugins/
 [ChefSpec]: https://docs.chef.io/chefspec.html
 [Test Kitchen]: http://kitchen.ci
 [serverspec]: http://serverspec.org

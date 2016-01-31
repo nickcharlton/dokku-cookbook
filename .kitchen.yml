@@ -20,9 +20,13 @@ suites:
     run_list:
       - recipe[dokku::default]
       - recipe[dokku::ssh_keys]
+      - recipe[dokku::plugins]
     attributes:
       dokku:
         domain: dokku.me
         ssh_keys:
           - user: test
             key: public_key
+        plugins:
+          - name: redis
+            url: https://github.com/dokku/dokku-redis.git
