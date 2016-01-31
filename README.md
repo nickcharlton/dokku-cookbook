@@ -1,5 +1,7 @@
 # dokku
 
+[![Build Status](https://travis-ci.org/nickcharlton/dokku-cookbook.svg?branch=master)](https://travis-ci.org/nickcharlton/dokku-cookbook)
+
 This is a rebuild of the existing [chef-dokku][] cookbook, switching to a
 direct package install and providing Lightweight Resource Providers (LWRPs) for
 managing apps and it's components.
