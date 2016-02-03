@@ -38,6 +38,13 @@ describe "dokku::install" do
         "execute[install-dokku-plugin-core-dependencies]").to(:run).immediately
     end
 
+    it "removes conflicing default configuration" do
+      resource = chef_run.file(
+        "/etc/nginx/conf.d/server_names_hash_bucket_size.conf")
+
+      expect(resource).to notify("service[nginx]").to(:restart).delayed
+    end
+
     it "creates the domain file" do
       expect(chef_run).to create_file("/home/dokku/VHOST")
     end
