@@ -1,6 +1,7 @@
 if defined?(ChefSpec)
   ChefSpec.define_matcher :dokku_ssh_keys
   ChefSpec.define_matcher :dokku_plugins
+  ChefSpec.define_matcher :dokku_app
 
   def add_dokku_ssh_key(resource_name)
     ChefSpec::Matchers::ResourceMatcher.new(:dokku_ssh_keys,
@@ -26,4 +27,9 @@ if defined?(ChefSpec)
                                             resource_name)
   end
 
+  def create_dokku_app(resource_name)
+    ChefSpec::Matchers::ResourceMatcher.new(:dokku_app,
+                                            :create,
+                                            resource_name)
+  end
 end

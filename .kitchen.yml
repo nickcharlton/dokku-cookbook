@@ -21,6 +21,7 @@ suites:
       - recipe[dokku::default]
       - recipe[dokku::ssh_keys]
       - recipe[dokku::plugins]
+      - recipe[dokku::apps]
     attributes:
       dokku:
         domain: dokku.me
@@ -30,3 +31,5 @@ suites:
         plugins:
           - name: redis
             url: https://github.com/dokku/dokku-redis.git
+        apps:
+          - name: demo-app

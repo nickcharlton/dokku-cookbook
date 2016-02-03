@@ -13,6 +13,8 @@ managing apps and it's components.
 * `dokku::default`: Includes install and provides the LWRPs.
 * `dokku::install`: Installs and configured dokku from the Debian package.
 * `dokku::ssh_keys`: Adds SSH keys from attributes.
+* `dokku::plugins`: Manages plugins from attributes.
+* `dokku::apps`: Manages apps from attributes.
 
 ### LWRPs
 
@@ -37,6 +39,14 @@ to `install`. e.g.:
 dokku_plugins "redis" do
   url "https://github.com/dokku/dokku-redis.git"
 end
+```
+
+#### `app`
+
+Provides `create` actions for managing Dokku apps. Defaults to `create`. e.g.:
+
+```ruby
+dokku_app "demo"
 ```
 
 ## Testing

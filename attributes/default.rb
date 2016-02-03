@@ -7,3 +7,4 @@
 default["dokku"]["domain"] = nil
 default["dokku"]["ssh_keys"] = []
 default["dokku"]["plugins"] = []
+default["dokku"]["apps"] = []
