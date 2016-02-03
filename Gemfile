@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 
-gem "rack", "1.5.1"
-gem "chef"
-gem "rspec"
-gem "chefspec"
-gem "berkshelf"
+group :integration do
+  gem "chef", "< 12.4"
+  gem "chefspec", "~> 4.5"
+  gem "berkshelf"
+end
