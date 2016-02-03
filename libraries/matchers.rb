@@ -32,4 +32,10 @@ if defined?(ChefSpec)
                                             :create,
                                             resource_name)
   end
+
+  def rename_dokku_app(resource_name)
+    ChefSpec::Matchers::ResourceMatcher.new(:dokku_app,
+                                            :rename,
+                                            resource_name)
+  end
 end

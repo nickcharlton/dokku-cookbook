@@ -37,6 +37,8 @@ describe "dokku::apps" do
       runner = ChefSpec::ServerRunner.new do |node|
         node.set["dokku"]["apps"] = [
           { name: "test-addition", action: "create" },
+          { name: "test-rename", action: "create" },
+          { name: "test-rename", new_name: "renamed", action: "rename" },
         ]
       end
 
@@ -45,6 +47,10 @@ describe "dokku::apps" do
 
     it "manages apps using attributes" do
       expect(chef_run).to create_dokku_app("test-addition")
+
+      expect(chef_run).to create_dokku_app("test-rename")
+      expect(chef_run).to rename_dokku_app("test-rename").with(
+        new_name: "renamed")
     end
   end
 end
