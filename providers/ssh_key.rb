@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: dokku
-# Provider:: ssh_keys
+# Provider:: ssh_key
 #
 # Copyright (c) 2015 Nick Charlton, MIT licensed.
 #

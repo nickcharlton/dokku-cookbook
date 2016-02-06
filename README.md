@@ -18,25 +18,25 @@ managing apps and it's components.
 
 ### LWRPs
 
-#### `ssh_keys`
+#### `ssh_key`
 
 Provides `add` and `remove` actions for setting the Dokku SSH public keys.
 Defaults to `add`. e.g.:
 
 ```ruby
-dokku_ssh_keys "user" do
+dokku_ssh_key "user" do
   key "ssh_public_key"
   action :add
 end
 ```
 
-#### `plugins`
+#### `plugin`
 
 Provides `install` and `uninstall` actions for handling [plugins][]. Defaults
 to `install`. e.g.:
 
 ```ruby
-dokku_plugins "redis" do
+dokku_plugin "redis" do
   url "https://github.com/dokku/dokku-redis.git"
 end
 ```

@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: dokku
-# Provider:: plugins
+# Provider:: plugin
 #
 # Copyright (c) 2015 Nick Charlton, MIT licensed.
 #

@@ -9,7 +9,7 @@ include_recipe "nginx"
 plugins = node["dokku"]["plugins"]
 
 plugins.each do |plugin|
-  dokku_plugins plugin["name"] do
+  dokku_plugin plugin["name"] do
     url plugin["url"]
     action plugin.fetch("action", "install").to_sym
   end

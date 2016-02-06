@@ -4,25 +4,25 @@ if defined?(ChefSpec)
   ChefSpec.define_matcher :dokku_app
 
   def add_dokku_ssh_key(resource_name)
-    ChefSpec::Matchers::ResourceMatcher.new(:dokku_ssh_keys,
+    ChefSpec::Matchers::ResourceMatcher.new(:dokku_ssh_key,
                                             :add,
                                             resource_name)
   end
 
   def remove_dokku_ssh_key(resource_name)
-    ChefSpec::Matchers::ResourceMatcher.new(:dokku_ssh_keys,
+    ChefSpec::Matchers::ResourceMatcher.new(:dokku_ssh_key,
                                             :remove,
                                             resource_name)
   end
 
   def install_dokku_plugin(resource_name)
-    ChefSpec::Matchers::ResourceMatcher.new(:dokku_plugins,
+    ChefSpec::Matchers::ResourceMatcher.new(:dokku_plugin,
                                             :install,
                                             resource_name)
   end
 
   def uninstall_dokku_plugin(resource_name)
-    ChefSpec::Matchers::ResourceMatcher.new(:dokku_plugins,
+    ChefSpec::Matchers::ResourceMatcher.new(:dokku_plugin,
                                             :uninstall,
                                             resource_name)
   end
