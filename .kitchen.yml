@@ -33,3 +33,7 @@ suites:
             url: https://github.com/dokku/dokku-redis.git
         apps:
           - name: demo-app
+          - name: app-for-destroying
+            action: create
+          - name: app-for-destroying
+            action: destroy

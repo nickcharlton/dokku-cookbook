@@ -17,6 +17,14 @@ action :create do
   end
 end
 
+action :destroy do
+  execute "destroying app: #{new_resource.name}" do
+    command "dokku --force apps:destroy #{new_resource.name}"
+
+    only_if { FileTest.directory?("/home/dokku/#{new_resource.name}") }
+  end
+end
+
 action :rename do
   execute "renaming #{new_resource.name} to #{new_resource.new_name}" do
     command "dokku apps:rename #{new_resource.name} #{new_resource.new_name}"

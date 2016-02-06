@@ -11,4 +11,9 @@ describe "dokku::apps" do
     expect(file("/home/dokku/app-for-renaming")).not_to be_directory
     expect(file("/home/dokku/renamed-app")).to be_directory
   end
+
+  it "destroys an app" do
+    # problem: do we even know it was created in the first place?
+    expect(file("/home/dokku/app-for-destroying")).not_to be_directory
+  end
 end

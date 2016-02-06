@@ -33,6 +33,12 @@ if defined?(ChefSpec)
                                             resource_name)
   end
 
+  def destroy_dokku_app(resource_name)
+    ChefSpec::Matchers::ResourceMatcher.new(:dokku_app,
+                                            :destroy,
+                                            resource_name)
+  end
+
   def rename_dokku_app(resource_name)
     ChefSpec::Matchers::ResourceMatcher.new(:dokku_app,
                                             :rename,

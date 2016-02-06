@@ -43,7 +43,8 @@ end
 
 #### `app`
 
-Provides `create` actions for managing Dokku apps. Defaults to `create`. e.g.:
+Provides `create`, `destroy` and `rename` actions for managing Dokku apps.
+Defaults to `create`. e.g.:
 
 ```ruby
 dokku_app "demo"

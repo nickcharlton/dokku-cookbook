@@ -39,6 +39,8 @@ describe "dokku::apps" do
           { name: "test-addition", action: "create" },
           { name: "test-rename", action: "create" },
           { name: "test-rename", new_name: "renamed", action: "rename" },
+          { name: "test-destroy", action: "create" },
+          { name: "test-destroy", action: "destroy" },
         ]
       end
 
@@ -51,6 +53,9 @@ describe "dokku::apps" do
       expect(chef_run).to create_dokku_app("test-rename")
       expect(chef_run).to rename_dokku_app("test-rename").with(
         new_name: "renamed")
+
+      expect(chef_run).to create_dokku_app("test-destroy")
+      expect(chef_run).to destroy_dokku_app("test-destroy")
     end
   end
 end
