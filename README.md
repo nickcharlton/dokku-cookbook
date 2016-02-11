@@ -11,7 +11,7 @@ managing apps and it's components.
 ### Recipes
 
 * `dokku::default`: Includes install and provides the LWRPs.
-* `dokku::install`: Installs and configured dokku from the Debian package.
+* `dokku::install`: Installs and configures dokku from the Debian package.
 * `dokku::ssh_keys`: Adds SSH keys from attributes.
 * `dokku::plugins`: Manages plugins from attributes.
 * `dokku::apps`: Manages apps from attributes.
