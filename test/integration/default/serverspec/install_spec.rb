@@ -24,4 +24,11 @@ describe "dokku::install" do
     expect(source_file).to exist
     expect(source_file).to contain("dokku.me")
   end
+
+  it "configures dokku nginx config" do
+    config_file = file("/etc/nginx/conf.d/dokku.conf")
+
+    expect(config_file).to contain("server_tokens")
+    expect(config_file).to contain("ssl_ciphers")
+  end
 end

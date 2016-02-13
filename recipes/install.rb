@@ -35,3 +35,9 @@ end
 file "/home/dokku/VHOST" do
   content node["dokku"]["domain"] || node["fqdn"]
 end
+
+template "/etc/nginx/conf.d/dokku.conf" do
+  source "nginx.conf.erb"
+
+  notifies :restart, "service[nginx]", :delayed
+end

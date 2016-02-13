@@ -16,6 +16,24 @@ managing apps and it's components.
 * `dokku::plugins`: Manages plugins from attributes.
 * `dokku::apps`: Manages apps from attributes.
 
+### Attributes
+
+#### default
+
+* `node["dokku"]["domain"]`: The domain for Dokku to serve under.
+* `node["dokku"]["ssh_keys"]`: A list of ssh keys to allow for deployment.
+* `node["dokku"]["plugins"]`: A list of plugins to manage.
+* `node["dokku"]["apps"]`: A list of apps to manage.
+
+These optional settings can be overridden to customise the default Nginx
+configuration (which is used for all apps):
+
+* `node["dokku"]["nginx"]["server_tokens"]`: Defaults to `off`.
+* `node["dokku"]["nginx"]["ssl_session_cache"]`: Defaults to `shared:SSL:20m`.
+* `node["dokku"]["nginx"]["ssl_session_timeout"]`: Defaults to `10m`.
+* `node["dokku"]["nginx"]["ssl_ciphers"]`: Defaults to
+  `EECDH+AES128:RSA+AES128:EECDH+AES256:RSA+AES256:EECDH+3DES:RSA+3DES:!MD5`
+
 ### LWRPs
 
 #### `ssh_key`
