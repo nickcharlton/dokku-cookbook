@@ -13,3 +13,5 @@ depends "nginx", "~> 2.7"
 
 recipe "default", "Triggers install cookbooks and provides the LWRP."
 recipe "install", "Installs and configures dokku dependencies"
+recipe "plugins", "Installs and configures plugins"
+recipe "ssh_keys", "Installs and configures ssh_keys"
