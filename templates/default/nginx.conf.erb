@@ -6,3 +6,8 @@ ssl_session_cache <%= node["dokku"]["nginx"]["ssl_session_cache"] %>;
 ssl_session_timeout <%= node["dokku"]["nginx"]["ssl_session_timeout"] %>;
 
 ssl_ciphers <%= node["dokku"]["nginx"]["ssl_ciphers"] %>;
+
+<% if node["dokku"]["nginx"]["enable_global_certificate"] %>
+ssl_certificate /home/dokku/tls/server.crt;
+ssl_certificate_key /home/dokku/tls/server.key;
+<% end %>

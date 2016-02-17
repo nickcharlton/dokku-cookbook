@@ -3,6 +3,7 @@ if defined?(ChefSpec)
   ChefSpec.define_matcher :dokku_plugins
   ChefSpec.define_matcher :dokku_app
   ChefSpec.define_matcher :dokku_nginx_template
+  ChefSpec.define_matcher :dokku_certificate
 
   def add_dokku_ssh_key(resource_name)
     ChefSpec::Matchers::ResourceMatcher.new(:dokku_ssh_key,
@@ -49,6 +50,12 @@ if defined?(ChefSpec)
   def build_dokku_nginx_template(resource_name)
     ChefSpec::Matchers::ResourceMatcher.new(:dokku_nginx_template,
                                             :build,
+                                            resource_name)
+  end
+
+  def add_dokku_certificate(resource_name)
+    ChefSpec::Matchers::ResourceMatcher.new(:dokku_certificate,
+                                            :add,
                                             resource_name)
   end
 end

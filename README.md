@@ -15,6 +15,7 @@ managing apps and it's components.
 * `dokku::ssh_keys`: Adds SSH keys from attributes.
 * `dokku::plugins`: Manages plugins from attributes.
 * `dokku::apps`: Manages apps from attributes.
+* `dokku::certificates`: Manages certificates from a data bag.
 
 ### Attributes
 
@@ -33,6 +34,30 @@ configuration (which is used for all apps):
 * `node["dokku"]["nginx"]["ssl_session_timeout"]`: Defaults to `10m`.
 * `node["dokku"]["nginx"]["ssl_ciphers"]`: Defaults to
   `EECDH+AES128:RSA+AES128:EECDH+AES256:RSA+AES256:EECDH+3DES:RSA+3DES:!MD5`
+
+### Data Bags
+
+#### `dokku_certificates`
+
+Used in combination with the `dokku::certificates` recipe, these allow for
+the management of SSL certificates both globally and for individual apps. It's
+expected that they look like this:
+
+```json
+{
+  "id": "wildcard",
+  "global": true,
+  "cert": "",
+  "key":
+}
+```
+
+The global flag specifies whether or not this certificate pair should be
+installed for all Dokku apps or not. The `id` value should be the name of the
+app the certificate will set on, unless it's a global certificate in which case
+the name is ignored.
+
+(The format is inspired by the [certificate cookbook][].)
 
 ### LWRPs
 
@@ -68,6 +93,23 @@ Defaults to `create`. e.g.:
 dokku_app "demo"
 ```
 
+#### `certificate`
+
+Provides the `add` action for installing Dokku certificates. e.g.:
+
+```ruby
+dokku_certificate "wildcard" do
+  cert "An SSL Certificate as a string"
+  key "An SSL Certificate's private key as a string"
+
+  global true
+end
+```
+
+The name of the action should be the `id` of an available data bag item.
+`global` specifies whether or not this certificate should be installed for all
+Dokku apps.
+
 ## Testing
 
 [ChefSpec][] is used for unit tests. [Test Kitchen][] is used for integration
@@ -85,6 +127,7 @@ chef exec kitchen test
 Copyright (c) Nick Charlton 2015. MIT licensed.
 
 [chef-dokku]: https://github.com/fgrehm/chef-dokku
+[certificate cookbook]: https://github.com/atomic-penguin/cookbook-certificate
 [plugins]: http://dokku.viewdocs.io/dokku/plugins/
 [ChefSpec]: https://docs.chef.io/chefspec.html
 [Test Kitchen]: http://kitchen.ci

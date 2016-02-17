@@ -17,11 +17,13 @@ platforms:
 
 suites:
   - name: default
+    data_bags_path: test/integration/default/data_bags
     run_list:
       - recipe[dokku::default]
       - recipe[dokku::ssh_keys]
       - recipe[dokku::plugins]
       - recipe[dokku::apps]
+      - recipe[dokku::certificates]
     attributes:
       dokku:
         domain: dokku.me
