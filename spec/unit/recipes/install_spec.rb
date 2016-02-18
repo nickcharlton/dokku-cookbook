@@ -49,13 +49,8 @@ describe "dokku::install" do
       expect(chef_run).to create_file("/home/dokku/VHOST")
     end
 
-    it "configures the dokku nginx config file" do
-      template_file = "/etc/nginx/conf.d/dokku.conf"
-
-      expect(chef_run).to create_template(template_file)
-
-      resource = chef_run.template(template_file)
-      expect(resource).to notify("service[nginx]").to(:restart).delayed
+    it "configures the global nginx template" do
+      expect(chef_run).to build_dokku_nginx_template("global")
     end
   end
 end

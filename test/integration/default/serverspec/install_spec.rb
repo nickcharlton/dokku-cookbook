@@ -25,7 +25,7 @@ describe "dokku::install" do
     expect(source_file).to contain("dokku.me")
   end
 
-  it "configures dokku nginx config" do
+  it "configures the global dokku nginx configuration file" do
     config_file = file("/etc/nginx/conf.d/dokku.conf")
 
     expect(config_file).to contain("server_tokens")
