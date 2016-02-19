@@ -2,9 +2,9 @@
 
 [![Build Status](https://travis-ci.org/nickcharlton/dokku-cookbook.svg?branch=master)](https://travis-ci.org/nickcharlton/dokku-cookbook)
 
-This is a rebuild of the existing [chef-dokku][] cookbook, switching to a
-direct package install and providing Lightweight Resource Providers (LWRPs) for
-managing apps and it's components.
+This is a Chef cookbook which provides the ability to install and configure
+[dokku][]. It provides a set of recipes and Lightweight Resource Providers
+(LWRPs) for managing apps and it's components.
 
 ## Usage
 
@@ -69,7 +69,6 @@ Defaults to `add`. e.g.:
 ```ruby
 dokku_ssh_key "user" do
   key "ssh_public_key"
-  action :add
 end
 ```
 
@@ -95,7 +94,8 @@ dokku_app "demo"
 
 #### `certificate`
 
-Provides the `add` action for installing Dokku certificates. e.g.:
+Provides `add` and `remove` actions for managing Dokku certificates. Defaults
+to `add`: e.g.:
 
 ```ruby
 dokku_certificate "wildcard" do
@@ -126,7 +126,7 @@ chef exec kitchen test
 
 Copyright (c) Nick Charlton 2015. MIT licensed.
 
-[chef-dokku]: https://github.com/fgrehm/chef-dokku
+[dokku]: https://github.com/dokku/dokku
 [certificate cookbook]: https://github.com/atomic-penguin/cookbook-certificate
 [plugins]: http://dokku.viewdocs.io/dokku/plugins/
 [ChefSpec]: https://docs.chef.io/chefspec.html
