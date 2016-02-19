@@ -48,3 +48,17 @@ action :add do
     end
   end
 end
+
+action :remove do
+  if new_resource.global
+
+  else
+    execute "removing certificate for #{new_resource.app}" do
+      command "dokku certs:remove #{new_resource.app}"
+
+      not_if do
+        !FileTest.exist?("/home/dokku/#{new_resource.app}/tls/server.crt")
+      end
+    end
+  end
+end

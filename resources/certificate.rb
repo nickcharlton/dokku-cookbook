@@ -5,7 +5,7 @@
 # Copyright (c) 2015 Nick Charlton, MIT licensed.
 #
 
-actions :add
+actions :add, :remove
 default_action :add
 
 attribute :app, kind_of: String, name_attribute: true

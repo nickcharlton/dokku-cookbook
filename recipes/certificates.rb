@@ -14,5 +14,6 @@ certificates.each do |certificate_key|
     key certificate["key"]
 
     global certificate.fetch("global", false)
+    action certificate.fetch("action", "add")
   end
 end

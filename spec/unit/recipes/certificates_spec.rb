@@ -30,5 +30,14 @@ describe "dokku::certificates" do
       expect(chef_run).to add_dokku_certificate("wildcard").with(
         global: true, cert: "CERT", key: "KEY")
     end
+
+    it "can remove a certificate" do
+      stub_data_bag("dokku_certificates").and_return(["old_cert"])
+      stub_data_bag_item("dokku_certificates", "old_cert").and_return(
+        "id" => "old_cert", "cert" => "CERT", "key" => "KEY", action: "remove")
+
+      expect(chef_run).to remove_dokku_certificate("old_cert").with(
+        cert: "CERT", key: "KEY")
+    end
   end
 end

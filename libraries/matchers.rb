@@ -58,4 +58,10 @@ if defined?(ChefSpec)
                                             :add,
                                             resource_name)
   end
+
+  def remove_dokku_certificate(resource_name)
+    ChefSpec::Matchers::ResourceMatcher.new(:dokku_certificate,
+                                            :remove,
+                                            resource_name)
+  end
 end
