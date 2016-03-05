@@ -32,8 +32,10 @@ configuration (which is used for all apps):
 * `node["dokku"]["nginx"]["server_tokens"]`: Defaults to `off`.
 * `node["dokku"]["nginx"]["ssl_session_cache"]`: Defaults to `shared:SSL:20m`.
 * `node["dokku"]["nginx"]["ssl_session_timeout"]`: Defaults to `10m`.
+* `node["dokku"]["nginx"]["ssl_protocols"]`: Defaults to
+  `TLSv1 TLSv1.1 TLSv1.2`.
 * `node["dokku"]["nginx"]["ssl_ciphers"]`: Defaults to
-  `EECDH+AES128:RSA+AES128:EECDH+AES256:RSA+AES256:EECDH+3DES:RSA+3DES:!MD5`
+  `EECDH+AESGCM:EDH+AESGCM:AES256+EECDH:AES256+EDH`
 
 ### Data Bags
 
