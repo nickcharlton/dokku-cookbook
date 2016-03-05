@@ -15,5 +15,7 @@ default["dokku"]["nginx"]["ssl_session_timeout"] = "10m"
 default["dokku"]["nginx"]["ssl_protocols"] = "TLSv1 TLSv1.1 TLSv1.2"
 default["dokku"]["nginx"]["ssl_ciphers"] = "EECDH+AESGCM:EDH+AESGCM:" \
   "AES256+EECDH:AES256+EDH"
+default["dokku"]["nginx"]["dhparam_file"] = "/etc/ssl/certs/dhparam.pem"
+default["dokku"]["nginx"]["dhparam_key_length"] = 4096
 
 default["dokku"]["enable_global_certificate"] = false

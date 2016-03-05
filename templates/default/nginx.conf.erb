@@ -8,6 +8,7 @@ ssl_session_timeout <%= node["dokku"]["nginx"]["ssl_session_timeout"] %>;
 ssl_prefer_server_ciphers On;
 ssl_protocols <%= node["dokku"]["nginx"]["ssl_protocols"] %>;
 ssl_ciphers <%= node["dokku"]["nginx"]["ssl_ciphers"] %>;
+ssl_dhparam <%= node["dokku"]["nginx"]["dhparam_file"] %>;
 
 <% if node["dokku"]["nginx"]["enable_global_certificate"] %>
 ssl_certificate /home/dokku/tls/server.crt;

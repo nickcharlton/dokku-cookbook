@@ -31,4 +31,8 @@ describe "dokku::install" do
     expect(config_file).to contain("server_tokens")
     expect(config_file).to contain("ssl_ciphers")
   end
+
+  it "configures a custom dhparams file" do
+    expect(file("/etc/ssl/certs/dhparam.pem")).to exist
+  end
 end

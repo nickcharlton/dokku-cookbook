@@ -52,5 +52,9 @@ describe "dokku::install" do
     it "configures the global nginx template" do
       expect(chef_run).to build_dokku_nginx_template("global")
     end
+
+    it "configures a custom dhparams file" do
+      expect(chef_run).to create_dhparam_pem("/etc/ssl/certs/dhparam.pem")
+    end
   end
 end

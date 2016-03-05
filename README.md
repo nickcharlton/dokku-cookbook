@@ -35,7 +35,11 @@ configuration (which is used for all apps):
 * `node["dokku"]["nginx"]["ssl_protocols"]`: Defaults to
   `TLSv1 TLSv1.1 TLSv1.2`.
 * `node["dokku"]["nginx"]["ssl_ciphers"]`: Defaults to
-  `EECDH+AESGCM:EDH+AESGCM:AES256+EECDH:AES256+EDH`
+  `EECDH+AESGCM:EDH+AESGCM:AES256+EECDH:AES256+EDH`.
+* `node["dokku"]["nginx"]["dhparam_file"]`: Defaults to
+  `/etc/ssl/certs/dhparam.pem`.
+* `node["dokku"]["nginx"]["dhparam_key_length"]`: Defaults to `4096`.
+
 
 ### Data Bags
 
