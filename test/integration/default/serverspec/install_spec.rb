@@ -15,7 +15,7 @@ describe "dokku::install" do
   end
 
   it "installs dokku" do
-    expect(package("dokku")).to be_installed
+    expect(package("dokku")).to be_installed.by("apt").with_version("0.4.14")
   end
 
   it "sets the domain for dokku" do

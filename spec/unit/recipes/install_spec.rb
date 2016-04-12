@@ -28,7 +28,7 @@ describe "dokku::install" do
     end
 
     it "installs dokku" do
-      expect(chef_run).to install_package "dokku"
+      expect(chef_run).to install_package("dokku").with(version: "0.4.14")
     end
 
     it "installs dokku plugin core dependencies" do

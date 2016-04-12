@@ -22,8 +22,16 @@ execute "install-dokku-plugin-core-dependencies" do
   action :nothing
 end
 
-package "dokku" do
-  notifies :run, "execute[install-dokku-plugin-core-dependencies]", :immediately
+%w(herokuish sshcommand plugn dokku).each do |pkg|
+  package pkg do
+    version node["dokku"]["package"][pkg]["version"]
+
+    if pkg == "dokku"
+      notifies :run,
+               "execute[install-dokku-plugin-core-dependencies]",
+               :immediately
+    end
+  end
 end
 
 # otherwise, it gets redefined when the core dependencies are installed
