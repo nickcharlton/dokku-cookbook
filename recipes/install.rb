@@ -23,6 +23,11 @@ execute "install-dokku-plugin-core-dependencies" do
 end
 
 %w(herokuish sshcommand plugn dokku).each do |pkg|
+  execute "hold-dependency-#{pkg}" do
+    command "apt-mark hold #{pkg}"
+    action :nothing
+  end
+
   package pkg do
     version node["dokku"]["package"][pkg]["version"]
 
@@ -31,6 +36,8 @@ end
                "execute[install-dokku-plugin-core-dependencies]",
                :immediately
     end
+
+    notifies :run, "execute[hold-dependency-#{pkg}]", :immediately
   end
 end
 

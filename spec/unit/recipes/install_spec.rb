@@ -31,6 +31,13 @@ describe "dokku::install" do
       expect(chef_run).to install_package("dokku").with(version: "0.4.14")
     end
 
+    it "marks a hold on the dokku package" do
+      resource = chef_run.package("dokku")
+
+      expect(resource).to notify(
+        "execute[hold-dependency-dokku]").to(:run).immediately
+    end
+
     it "installs dokku plugin core dependencies" do
       resource = chef_run.package("dokku")
 

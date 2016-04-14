@@ -18,6 +18,12 @@ describe "dokku::install" do
     expect(package("dokku")).to be_installed.by("apt").with_version("0.4.14")
   end
 
+  it "marks a hold on the dokku package" do
+    cmd = command("dpkg --get-selections dokku | grep hold")
+
+    expect(cmd.exit_status).to eq(0)
+  end
+
   it "sets the domain for dokku" do
     source_file = file("/home/dokku/VHOST")
 
