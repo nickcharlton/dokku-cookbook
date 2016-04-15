@@ -49,12 +49,8 @@ describe "dokku::apps" do
 
     it "manages apps using attributes" do
       expect(chef_run).to create_dokku_app("test-addition")
-
-      expect(chef_run).to create_dokku_app("test-rename")
       expect(chef_run).to rename_dokku_app("test-rename").with(
         new_name: "renamed")
-
-      expect(chef_run).to create_dokku_app("test-destroy")
       expect(chef_run).to destroy_dokku_app("test-destroy")
     end
   end
