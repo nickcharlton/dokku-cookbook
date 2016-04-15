@@ -6,6 +6,10 @@ This is a Chef cookbook which provides the ability to install and configure
 [dokku][]. It provides a set of recipes and Lightweight Resource Providers
 (LWRPs) for managing apps and it's components.
 
+It's [pinned][] against a [specific version of dokku][dokku_releases] to protect
+your installation against being accidentally broken. This marks a `hold`
+against the installed packages.
+
 ## Usage
 
 ### Recipes
@@ -133,6 +137,8 @@ chef exec kitchen test
 Copyright (c) Nick Charlton 2015. MIT licensed.
 
 [dokku]: https://github.com/dokku/dokku
+[pinned]: https://github.com/nickcharlton/dokku-cookbook/blob/master/attributes/default.rb#L7
+[dokku_releases]: https://github.com/dokku/dokku/releases
 [certificate cookbook]: https://github.com/atomic-penguin/cookbook-certificate
 [plugins]: http://dokku.viewdocs.io/dokku/plugins/
 [ChefSpec]: https://docs.chef.io/chefspec.html
