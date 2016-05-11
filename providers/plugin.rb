@@ -11,7 +11,14 @@ end
 
 action :install do
   execute "installing plugin: #{new_resource.name}" do
-    command "dokku plugin:install #{new_resource.url} #{new_resource.name}"
+    flags = nil
+
+    if new_resource.committish
+      flags = "--committish #{new_resource.committish}"
+    end
+
+    command "dokku plugin:install #{new_resource.url} " \
+      "#{flags} #{new_resource.name}"
 
     not_if do
       plugin_dir = "/var/lib/dokku/plugins/available/#{new_resource.name}"

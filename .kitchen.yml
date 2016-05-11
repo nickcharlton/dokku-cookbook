@@ -33,6 +33,7 @@ suites:
         plugins:
           - name: redis
             url: https://github.com/dokku/dokku-redis.git
+            committish: 659cd084
         apps:
           - name: demo-app
           - name: app-for-destroying

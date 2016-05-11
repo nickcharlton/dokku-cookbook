@@ -67,4 +67,26 @@ describe "dokku::plugins" do
         "mongo").with(url: "https://github.com/dokku/dokku-mongo.git")
     end
   end
+
+  context "when plugins to be installed provide a commit to fetch" do
+    let(:chef_run) do
+      runner = ChefSpec::ServerRunner.new do |node|
+        node.set["dokku"]["plugins"] = [
+          { name: "redis", url: "https://github.com/dokku/dokku-redis.git",
+            action: "install", committish: "0.4.0" },
+        ]
+      end
+
+      runner.converge(described_recipe)
+    end
+
+    before do
+      stub_command("which nginx").and_return("/usr/bin/nginx")
+    end
+
+    it "installs the plugins specifying that committish" do
+      expect(chef_run).to install_dokku_plugin("redis").with(
+        url: "https://github.com/dokku/dokku-redis.git", committish: "0.4.0")
+    end
+  end
 end
