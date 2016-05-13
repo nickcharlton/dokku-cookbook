@@ -66,12 +66,5 @@ describe "dokku::plugins" do
       expect(chef_run).to uninstall_dokku_plugin(
         "mongo").with(url: "https://github.com/dokku/dokku-mongo.git")
     end
-
-    it "removes conflicing default configuration" do
-      resource = chef_run.file(
-        "/etc/nginx/conf.d/server_names_hash_bucket_size.conf")
-
-      expect(resource).to notify("service[nginx]").to(:restart).delayed
-    end
   end
 end

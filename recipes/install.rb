@@ -4,7 +4,7 @@
 #
 # Copyright (c) 2015 Nick Charlton, MIT licensed.
 
-include_recipe "nginx"
+include_recipe "dokku::_nginx"
 include_recipe "openssl"
 
 package "apt-transport-https"
@@ -39,13 +39,6 @@ end
 
     notifies :run, "execute[hold-dependency-#{pkg}]", :immediately
   end
-end
-
-# otherwise, it gets redefined when the core dependencies are installed
-file "/etc/nginx/conf.d/server_names_hash_bucket_size.conf" do
-  action :delete
-
-  notifies :restart, "service[nginx]", :delayed
 end
 
 file "/home/dokku/VHOST" do

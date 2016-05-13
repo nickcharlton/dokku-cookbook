@@ -18,7 +18,7 @@ describe "dokku::install" do
     end
 
     it "installs the required dependencies" do
-      expect(chef_run).to include_recipe "nginx"
+      expect(chef_run).to include_recipe("dokku::_nginx")
       expect(chef_run).to install_package "apt-transport-https"
       expect(chef_run).to start_docker_service "default"
     end
@@ -43,13 +43,6 @@ describe "dokku::install" do
 
       expect(resource).to notify(
         "execute[install-dokku-plugin-core-dependencies]").to(:run).immediately
-    end
-
-    it "removes conflicing default configuration" do
-      resource = chef_run.file(
-        "/etc/nginx/conf.d/server_names_hash_bucket_size.conf")
-
-      expect(resource).to notify("service[nginx]").to(:restart).delayed
     end
 
     it "creates the domain file" do
