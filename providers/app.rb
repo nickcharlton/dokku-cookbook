@@ -19,7 +19,8 @@ end
 
 action :destroy do
   execute "destroying app: #{new_resource.name}" do
-    command "dokku --force apps:destroy #{new_resource.name}"
+    command "dokku --force apps:destroy #{new_resource.name} " \
+     "| grep 'Destroying #{new_resource.name}'"
 
     only_if { FileTest.directory?("/home/dokku/#{new_resource.name}") }
   end
