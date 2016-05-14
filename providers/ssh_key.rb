@@ -13,6 +13,10 @@ action :add do
   execute "adding ssh key for #{new_resource.user}" do
     command "echo #{new_resource.key} | sshcommand " \
             "acl-add dokku #{new_resource.user}"
+
+    not_if do
+      system("grep #{new_resource.user} /home/dokku/.ssh/authorized_keys")
+    end
   end
 end
 
