@@ -6,7 +6,7 @@
 
 default["dokku"]["package"]["dokku"]["version"] = "0.5.6"
 default["dokku"]["package"]["herokuish"]["version"] = "0.3.12"
-default["dokku"]["package"]["sshcommand"]["version"] = "0.1.0"
+default["dokku"]["package"]["sshcommand"]["version"] = "0.4.0"
 default["dokku"]["package"]["plugn"]["version"] = "0.2.1"
 
 default["dokku"]["domain"] = nil
