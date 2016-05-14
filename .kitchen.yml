@@ -29,7 +29,7 @@ suites:
         domain: dokku.me
         ssh_keys:
           - user: test
-            key: public_key
+            key: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDZw0/SXpe45OSAEtT/vcLJw9r80PWxMcuo7qc6l7zSIGj/KcItUpvnghbzJDUA0GEyk68uO/jQ9nyUEok1Kqq5wCc8PHBouZCQLgQC8FV/95hEAyuCh1zZNAEYB8Q4s57UdkLGJnsaEuLCvHN/JDzcgyCf1rDcXHD3E1PQc2hhznFbCgJHaXTrMCo+9lpz4JsWw4rd4+wzBb0pUSrl9k4V8F+/+msMHKwg4se3KmX7LXNihA49HAGLdIn95fwWNrtCQO0qNhgjDJTPOmi3q6KPIvQDrNch+uJLZ9uh5KXKMHKTAoQ1pG0rPvv4z3f8Fi4opvlTG2cOJmEDfJGgFCB8oBzY3Qyp3SpZGMGe0L0hKzxyfYlx9nJdntxDHbwXcqREF8/DTw5gQxbGUrc4cVPyWMG3hZCN/HJwEcNlPu0WrbXkB0yBsQRYTOu4yFPGc/04wu/AQsTlC0W4xNItS+V7onzn7d+C2GnJNSCR285q6e5aDcDAjLPhrAjHPRf7S3l3EGHKwyAMwq3u3lubp9X0CtoghEldfjOIKjCy18s5ekbMUAxA5LBYTEVdTW/yit6haVJ6Yo737gSPFUy9j0reOe43Y9dKfPPgRTvKcLG0XFrCsPA8HkB0WKWZAQfp0p7kvUjnuDHx6HqcFjQvhvIAeArKI/kcIS1jmnLWQYJ4zw== dokku-test-key@nickcharlton.net
         plugins:
           - name: redis
             url: https://github.com/dokku/dokku-redis.git
