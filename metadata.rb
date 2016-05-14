@@ -7,7 +7,7 @@ long_description "Manages a dokku install and provides LWRPs for managing apps."
 version "1.2.0"
 
 depends "apt", "~> 2.9"
-depends "docker", "~> 2.0"
+depends "docker", "2.6.6"
 depends "packagecloud", "~> 0.1"
 depends "openssl", "~> 4.4"
 
