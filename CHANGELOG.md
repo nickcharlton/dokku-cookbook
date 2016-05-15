@@ -1,5 +1,16 @@
 # CHANGELOG
 
+## 2.0.0 (17/05/2016)
+
+* Check that SSH keys do not already exist before adding. ([PR #16][])
+* Remove support for global certificates. ([PR #17][])
+* Upgrade `dokku` to `0.5.6`.
+* Upgrade `herokuish` to `0.3.12`.
+* Upgrade `sshcommand` to `0.4.0`.
+
+[PR #16]: https://github.com/nickcharlton/dokku-cookbook/pull/16
+[PR #17]: https://github.com/nickcharlton/dokku-cookbook/pull/17
+
 ## 1.3.0 (14/05/2016)
 
 * Fixes a bug where deleting apps would fail because it'd return a `1`.
