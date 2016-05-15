@@ -9,6 +9,5 @@ actions :add, :remove
 default_action :add
 
 attribute :app, kind_of: String, name_attribute: true
-attribute :global, kind_of: [TrueClass, FalseClass], default: false
 attribute :cert, kind_of: String
 attribute :key, kind_of: String

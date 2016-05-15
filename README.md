@@ -50,24 +50,19 @@ configuration (which is used for all apps):
 #### `dokku_certificates`
 
 Used in combination with the `dokku::certificates` recipe, these allow for
-the management of SSL certificates both globally and for individual apps. It's
-expected that they look like this:
+the management of SSL certificates apps. It's expected that they look like
+this:
 
 ```json
 {
-  "id": "wildcard",
-  "global": true,
+  "id": "app-name",
   "cert": "",
   "key":
 }
 ```
 
-The global flag specifies whether or not this certificate pair should be
-installed for all Dokku apps or not. The `id` value should be the name of the
-app the certificate will set on, unless it's a global certificate in which case
-the name is ignored.
-
-(The format is inspired by the [certificate cookbook][].)
+The `id` value should be the name of the app the certificate will set on. (The
+format is inspired by the [certificate cookbook][].)
 
 ### LWRPs
 
@@ -111,14 +106,10 @@ to `add`: e.g.:
 dokku_certificate "wildcard" do
   cert "An SSL Certificate as a string"
   key "An SSL Certificate's private key as a string"
-
-  global true
 end
 ```
 
 The name of the action should be the `id` of an available data bag item.
-`global` specifies whether or not this certificate should be installed for all
-Dokku apps.
 
 ## Testing
 

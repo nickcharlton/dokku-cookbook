@@ -22,5 +22,3 @@ default["dokku"]["nginx"]["ssl_ciphers"] = "EECDH+AESGCM:EDH+AESGCM:" \
   "AES256+EECDH:AES256+EDH"
 default["dokku"]["nginx"]["dhparam_file"] = "/etc/ssl/certs/dhparam.pem"
 default["dokku"]["nginx"]["dhparam_key_length"] = 4096
-
-default["dokku"]["enable_global_certificate"] = false

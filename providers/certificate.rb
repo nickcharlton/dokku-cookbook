@@ -10,11 +10,7 @@ def whyrun_supported?
 end
 
 action :add do
-  certificate_directory = if new_resource.global
-                            "/home/dokku/tls"
-                          else
-                            "/home/dokku/#{new_resource.app}/tls"
-                          end
+  certificate_directory = "/home/dokku/#{new_resource.app}/tls"
 
   directory certificate_directory do
     owner "dokku"
@@ -36,29 +32,19 @@ action :add do
     mode "0640"
   end
 
-  if new_resource.global
-    node.default["dokku"]["nginx"]["enable_global_certificate"] = true
+  execute "rebuilding nginx config for #{new_resource.app}" do
+    command "dokku nginx:build-config #{new_resource.app}"
 
-    dokku_nginx_template "enable-global-certificate"
-  else
-    execute "rebuilding nginx config for #{new_resource.app}" do
-      command "dokku nginx:build-config #{new_resource.app}"
-
-      notifies :restart, "service[nginx]", :delayed
-    end
+    notifies :restart, "service[nginx]", :delayed
   end
 end
 
 action :remove do
-  if new_resource.global
+  execute "removing certificate for #{new_resource.app}" do
+    command "dokku certs:remove #{new_resource.app}"
 
-  else
-    execute "removing certificate for #{new_resource.app}" do
-      command "dokku certs:remove #{new_resource.app}"
-
-      not_if do
-        !FileTest.exist?("/home/dokku/#{new_resource.app}/tls/server.crt")
-      end
+    not_if do
+      !FileTest.exist?("/home/dokku/#{new_resource.app}/tls/server.crt")
     end
   end
 end
