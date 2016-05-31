@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 2.0.1 (unreleased)
+
+* Remove duplicate nginx configuration, breaking deploys.
+
 ## 2.0.0 (17/05/2016)
 
 * Check that SSH keys do not already exist before adding. ([PR #16][])
