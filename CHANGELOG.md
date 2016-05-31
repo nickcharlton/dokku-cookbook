@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## 2.0.1 (unreleased)
+## 2.0.1 (31/05/2016)
 
 * Remove duplicate nginx configuration, breaking deploys.
 
