@@ -1,8 +1,13 @@
 source "https://rubygems.org"
 
 group :integration do
-  gem "docker-api", "1.26.2"
-  gem "chef", "< 12.4"
-  gem "chefspec", "4.5.0"
   gem "berkshelf"
+  gem "chef", "~> 14"
+  gem "chefspec", "~> 7"
+  gem "docker-api", "1.34.2"
+  gem "test-kitchen"
+end
+
+group :dokken do
+  gem "kitchen-docker"
 end

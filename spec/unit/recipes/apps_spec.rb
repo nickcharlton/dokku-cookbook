@@ -21,7 +21,7 @@ describe "dokku::apps" do
   context "when apps exist in attributes and no actions are listed" do
     let(:chef_run) do
       runner = ChefSpec::ServerRunner.new do |node|
-        node.set["dokku"]["apps"] = [{ name: "test" }]
+        node.override["dokku"]["apps"] = [{ name: "test" }]
       end
 
       runner.converge(described_recipe)
@@ -35,7 +35,7 @@ describe "dokku::apps" do
   context "when apps exist in attributes" do
     let(:chef_run) do
       runner = ChefSpec::ServerRunner.new do |node|
-        node.set["dokku"]["apps"] = [
+        node.override["dokku"]["apps"] = [
           { name: "test-addition", action: "create" },
           { name: "test-rename", action: "create" },
           { name: "test-rename", new_name: "renamed", action: "rename" },

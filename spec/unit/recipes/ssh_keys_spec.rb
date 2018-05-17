@@ -21,7 +21,9 @@ describe "dokku::ssh_keys" do
   context "when ssh_keys exist in attributes and no actions are listed" do
     let(:chef_run) do
       runner = ChefSpec::ServerRunner.new do |node|
-        node.set["dokku"]["ssh_keys"] = [{ user: "test", key: "public_key" }]
+        node.override["dokku"]["ssh_keys"] = [
+          { user: "test", key: "public_key" },
+        ]
       end
       runner.converge(described_recipe)
     end
@@ -34,7 +36,7 @@ describe "dokku::ssh_keys" do
   context "when ssh_keys exist in attributes" do
     let(:chef_run) do
       runner = ChefSpec::ServerRunner.new do |node|
-        node.set["dokku"]["ssh_keys"] = [
+        node.override["dokku"]["ssh_keys"] = [
           { user: "test-addition", key: "public_key", action: "add" },
           { user: "test-removal", key: "old_key", action: "remove" },
         ]

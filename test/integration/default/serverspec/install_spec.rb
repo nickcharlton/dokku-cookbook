@@ -4,6 +4,9 @@ describe "dokku::install" do
   it "installs the required dependencies" do
     expect(service("nginx")).to be_running
     expect(package("apt-transport-https")).to be_installed
+  end
+
+  it "has docker running", if: ENV["SKIP_DOCKER_INSTALL_SPEC"] == false do
     expect(service("docker")).to be_running
   end
 
@@ -15,7 +18,7 @@ describe "dokku::install" do
   end
 
   it "installs dokku" do
-    expect(package("dokku")).to be_installed.by("apt").with_version("0.5.6")
+    expect(package("dokku")).to be_installed.by("apt").with_version("0.12.13")
   end
 
   it "marks a hold on the dokku package" do
