@@ -120,7 +120,7 @@ tests, with [serverspec][].
 # unit tests
 chef exec rspec
 # integration tests
-chef exec kitchen test
+KITCHEN_LOCAL_YAML=.kitchen.dokken.yml chef exec verify
 ```
 
 ## Author

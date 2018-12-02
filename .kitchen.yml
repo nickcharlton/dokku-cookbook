@@ -11,9 +11,7 @@ provisioner:
 #   name: inspec
 
 platforms:
-  - name: ubuntu-14.04
-    driver:
-      box: boxesio/trusty64-chef
+  - name: ubuntu-16.04
 
 suites:
   - name: default
@@ -26,6 +24,8 @@ suites:
       - recipe[dokku::certificates]
     attributes:
       dokku:
+        nginx:
+          dhparam_key_length: 1024
         domain: dokku.me
         ssh_keys:
           - user: test

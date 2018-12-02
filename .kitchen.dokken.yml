@@ -1,0 +1,26 @@
+---
+driver:
+  name: dokken
+  privileged: true
+  chef_version: latest
+  # use_sudo: false
+  # volume: /var/run/docker.sock:/var/run/docker.sock
+
+transport:
+  name: dokken
+
+provisioner:
+  name: dokken
+
+verifier:
+  root_path: '/opt/verifier'
+
+platforms:
+- name: ubuntu-16.04
+  driver:
+    image: dokken/ubuntu-16.04
+    pid_one_command: /bin/systemd
+    intermediate_instructions:
+      - RUN /usr/bin/apt-get update
+  run_list:
+    - recipe[fake]

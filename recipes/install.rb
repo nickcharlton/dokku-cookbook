@@ -10,7 +10,7 @@ include_recipe "openssl"
 package "apt-transport-https"
 
 docker_service "default" do
-  action [:create, :start]
+  action %i[create start]
 end
 
 packagecloud_repo "dokku/dokku" do
