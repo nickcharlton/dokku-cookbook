@@ -4,7 +4,7 @@ maintainer_email "nick@nickcharlton.net"
 license "mit"
 description "Manages a dokku install."
 long_description "Manages a dokku install and provides LWRPs for managing apps."
-version "2.1.0"
+version "2.2.0"
 
 depends "apt", "~> 7.1.0"
 depends "docker", "~> 4.6.5"

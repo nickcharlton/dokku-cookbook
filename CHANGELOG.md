@@ -1,6 +1,12 @@
 # CHANGELOG
 
-## 2.0.1 (31/05/2016)
+## 2.2.0 (02/12/2018)
+
+* Updated cookbook and test dependencies. ([PR #20][])
+
+[PR #20]: https://github.com/nickcharlton/dokku-cookbook/pull/20
+
+## 2.1.0 (31/05/2016)
 
 * Remove duplicate nginx configuration, breaking deploys.
 
