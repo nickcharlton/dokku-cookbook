@@ -11,7 +11,7 @@ addons:
 
 services: docker
 
-install: chef exec bundle
+install: CHEF_LICENSE="accept" chef exec bundle
 
 # Ensure we make ChefDK's Ruby the default
 before_script:
