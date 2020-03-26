@@ -27,6 +27,13 @@ describe "dokku::install" do
       expect(chef_run).to create_packagecloud_repo "dokku/dokku"
     end
 
+    it "releases a hold on the dokku package" do
+      resource = chef_run.package("dokku")
+
+      expect(resource).to notify(
+        "execute[unhold-dependency-dokku]").to(:run).immediately
+    end
+
     it "installs dokku" do
       expect(chef_run).to install_package("dokku").with(version: "0.20.0")
     end
