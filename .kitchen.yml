@@ -17,6 +17,7 @@ suites:
   - name: default
     data_bags_path: test/integration/default/data_bags
     run_list:
+      - recipe[apt]
       - recipe[dokku::default]
       - recipe[dokku::ssh_keys]
       - recipe[dokku::plugins]
