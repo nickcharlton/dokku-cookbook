@@ -28,8 +28,15 @@ end
     action :nothing
   end
 
+  execute "unhold-dependency-#{pkg}" do
+    command "apt-mark unhold #{pkg}"
+    action :nothing
+  end
+
   package pkg do
     version node["dokku"]["package"][pkg]["version"]
+
+    notifies :run, "execute[unhold-dependency-#{pkg}]", :immediately
 
     if pkg == "dokku"
       notifies :run,
