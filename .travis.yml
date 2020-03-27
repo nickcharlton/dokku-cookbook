@@ -1,17 +1,17 @@
 sudo: required
-dist: trusty
+dist: xenial
 
 addons:
   apt:
     sources:
-      - chef-current-trusty
+      - chef-stable-xenial
     packages:
       - chefdk
       - docker-ce
 
 services: docker
 
-install: chef exec bundle
+install: CHEF_LICENSE="accept" chef exec bundle
 
 # Ensure we make ChefDK's Ruby the default
 before_script:
