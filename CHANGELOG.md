@@ -1,5 +1,17 @@
 # CHANGELOG
 
+## 2.3.0 (27/03/2020)
+
+* Update Travis to use Xenial ([PR #24][])
+* Release package hold before updating ([PR #21][])
+* Update default versions ([PR #22][])
+* Add test support for Ubuntu 18.04 ([PR #23][])
+
+[PR #24]: https://github.com/nickcharlton/dokku-cookbook/pull/24
+[PR #21]: https://github.com/nickcharlton/dokku-cookbook/pull/21
+[PR #22]: https://github.com/nickcharlton/dokku-cookbook/pull/22
+[PR #23]: https://github.com/nickcharlton/dokku-cookbook/pull/23
+
 ## 2.2.0 (02/12/2018)
 
 * Updated cookbook and test dependencies. ([PR #20][])
